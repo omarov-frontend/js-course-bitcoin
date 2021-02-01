@@ -15,8 +15,23 @@ body {
     margin-top: 100px;
 }
 
-#date1,
-#date2 {
-    margin: 10px;
+#start-date,
+#end-date {
+    margin: 5px;
     padding: 5px;
+}
+
+#go {
+    cursor: pointer;
+    padding: 6px 15px;
+}
+
+#table {
+    width: 390px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+#table table {
+    text-align: center;
 }

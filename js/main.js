@@ -1,31 +1,25 @@
-$(document).ready(function() {
-    // getRate();
-    // getHistoryRate();
-    $('input[type = "date"]').on('input', getHistoryRate);
-});
+const startDate = document.querySelector('#start-date');
+const endDate = document.querySelector('#end-date');
+const go = document.querySelector('#go');
 
-// курс биткоина реального времени
-function getRate() {
-    $.get(
-        "https://api.coindesk.com/v1/bpi/currentprice.json",
-        function(data) {
-            data = JSON.parse(data);
-            console.log(data);
-        }
-    );
-}
+go.addEventListener('click', function() {
+    if (!startDate.value || !endDate.value) return;
 
-// курс биткоина исторического времени
-function getHistoryRate() {
-    $.get(
-        "https://api.coindesk.com/v1/bpi/historical/close.json",
-        {
-            'start': $('#date1').val(),
-            'end' : $('#date2').val()
-        },
-        function(data) {
-            data = JSON.parse(data);
-            console.log(data);
-        }
-    );
-}
+    const params = {
+        start: startDate.value,
+        end: endDate.value
+    }
+
+    fetch('https://api.coindesk.com/v1/bpi/historical/close.json' + new URLSearchParams(params))
+        .then(response => response.json())
+        .then(response => {
+            console.log('response', response);
+            
+            const { bpi } = response;
+
+            // вывести в таблицу под формой
+        })
+        .catch(error => {
+            console.error(error);
+        });
+})
