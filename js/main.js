@@ -16,13 +16,12 @@ go.addEventListener('click', function() {
     fetch('https://api.coindesk.com/v1/bpi/historical/close.json' + new URLSearchParams(params))
         .then(response => response.json())
         .then(response => {
-            console.log('response', response);
 
             // получили данные
             const { bpi } = response;
 
-            // надо вывести данные
-            renderBitcoinDate(bpi, tableWrapper);
+            // выводим данные
+            renderBitcoinData(bpi, tableWrapper);
 
         })
         .catch(error => {
@@ -30,7 +29,7 @@ go.addEventListener('click', function() {
         });
 })
 
-function renderBitcoinDate(tableDate, element) {
+function renderBitcoinData(tableDate, element) {
     let result = 
         `<table>
             <tr>
