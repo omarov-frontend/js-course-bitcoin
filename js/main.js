@@ -1,7 +1,7 @@
 const startDate = document.querySelector('#start-date');
 const endDate = document.querySelector('#end-date');
 const go = document.querySelector('#go');
-const table = document.querySelector('#table');
+const tableWrapper = document.querySelector('#table-wrapper');
 
 go.addEventListener('click', function() {
     if (!startDate.value || !endDate.value) return;
@@ -22,7 +22,7 @@ go.addEventListener('click', function() {
             const { bpi } = response;
 
             // надо вывести данные
-            renderBitcoinDate(bpi, table);
+            renderBitcoinDate(bpi, tableWrapper);
 
         })
         .catch(error => {
@@ -31,8 +31,6 @@ go.addEventListener('click', function() {
 })
 
 function renderBitcoinDate(tableDate, element) {
-    console.log('tableDate', tableDate);
-
     let result = 
         `<table>
             <tr>
@@ -53,6 +51,6 @@ function renderBitcoinDate(tableDate, element) {
     }
 
     result += '</table>';
-    
+
     element.innerHTML = result;
 }
