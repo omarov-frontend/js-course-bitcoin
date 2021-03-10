@@ -2,4 +2,4 @@
 
 > Получаем курс биткоина
 
-Demo - https://omarov-frontend.github.io/js-course-bitcoin/
+Demo - https://omarovfrontend.github.io/js-course-bitcoin/
